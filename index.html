@@ -28,52 +28,65 @@
                 <!-- Wrapper para o panzoom -->
                 <div id="panzoom-wrapper" style="transform-origin: 0 0;" class="cursor-grab active:cursor-grabbing">
                     <div class="mermaid">
+                        ---
+                        config:
+                            themeCSS: |
+                                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+                                * {
+                                    font-family: 'Inter', sans-serif;
+                                }
+                        ---
                         flowchart TD
                         %% Subgraph Principal (Diagrama do Sitemap)
-                        subgraph Diagrama_Principal[ ]
-                        Cliente(ISH Tecnologia)
-                        Cliente~~~m1(Home):::pagInclusa
-                        Cliente~~~m2(Institucional):::nep
-                        Cliente~~~m3(Soluções):::nep
-                        Cliente~~~m4(Verticais):::nep
-                        Cliente~~~m5(Conteúdos):::nep
-                        Cliente~~~m6(Blog):::blog
-                        Cliente~~~m7(Investidores):::linkexterno
-                        Cliente~~~m8(Contato):::pagInclusa
+                        subgraph Diagrama_Principal[ISH Tecnologia]
+                        Menu( ):::sumir
+                        Menu~~~m1(Home):::pagInclusa
+                        Menu~~~m2(Institucional):::nep
+                        Menu~~~m3(Soluções):::nep
+                        Menu~~~m4(Verticais):::nep
+                        Menu~~~m5(Conteúdos):::nep
+                        Menu~~~m6(Blog):::blog
+                        Menu~~~m7(Investidores):::linkexterno
+                        Menu~~~m8(Contato):::pagInclusa
+
                         m2-->m2_1(Sobre):::pagInclusa
                         m2_1--->m2_2(Trabalhe conosco):::linkexterno
                         m2_2-->m2_3(Sis. de Integridade):::pagInclusa
+
                         m2_1-.->m2_1_1(Clientes):::pagextramd
                         m2_1-.->m2_1_2(Alianças):::pagextramd
+
                         m2_3-->m2_3_1(Transp.):::pagextrasp
                         m2_3-->m2_3_2(Pol. ISH):::pagextrasp
                         m2_3-->m2_3_3(Pol. Priva):::pagextrasp
                         m2_3-->m2_3_4(Cód. Cond.):::pagextrasp
                         m2_3-->m2_3_5(Dir. do tit.):::pagextrasp
+
                         m3-->m3_1(ISH Vision):::pagextracp
                         m3_1-->m3_2(GRC/IRM):::pagextracp
                         m3_2-->m3_3(Infraestrtura):::pagextramd
                         m3_3-->m3_4(Nuvem):::pagextramd
                         m3_4-->m3_5(Riscos Digi):::pagextramd
+
                         m4-->m4_1(Educação):::pagextracp
                         m4_1-->m4_2(Financeiro):::pagextrafl
                         m4_2-->m4_3(Setor Público):::pagextrafl
                         m4_3-->m4_4(Indústria):::pagextrafl
                         m4_4-->m4_5(Saúde):::pagextrafl
                         m4_5-->m4_6(Varejo):::pagextrafl
+
                         m5-->m5_1(Mat. p. download):::cpt
                         m5_1-->m5_2(Cases de sucesso):::cpt
                         m5_2-->m5_3(Podcast):::cpt
                         m5_3-->m5_4(Boletins de seg.):::cpt
                         end
-
-                        %% Subgraph Legenda
+                        %% Subgraph Legenda (Legenda ao lado)
                         subgraph Legenda["Legenda"]
                         direction LR
                         legPagInclusa(Pagina Inclusa):::pagInclusa
                         legLinkExterno(Link Externo):::linkexterno
                         legNep(Apenas item de menu):::nep
-                        legCpt(Custom Post Type):::cpt
+                        legCpt(Captura de Lead):::cpt
                         legBlog(Notícias ou Blog):::blog
                         legPagExtraCp(Página extra complexa):::pagextracp
                         legPagExtraMd(Página extra média):::pagextramd
@@ -84,8 +97,8 @@
                         %% Inserção de classes
                         class Legenda legenda
                         class Diagrama_Principal fullchart
+                        class Diagrama_Principal titulo_mapa
                         class Legenda leg
-
                         %% Definição de Classes
                         classDef titulo font-size:30px, font-weight:bold;
                         classDef default fill:#d2d2d2,stroke-width:0px;
@@ -101,6 +114,8 @@
                         classDef fullchart stroke:#fff, fill:transparent;
                         classDef legenda stroke:#000000, fill:transparent;
                         classDef leg font-weight:bold, font-size:20px
+                        classDef titulo_mapa font-weight:bold, font-size:25px
+                        classDef sumir fill:transparent
                     </div>
                 </div>
             </div>
