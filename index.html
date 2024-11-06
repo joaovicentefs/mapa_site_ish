@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="bg-gray-50">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Scripts necessários -->
+    <script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
+</head>
+
+<body class="min-h-screen">
+    <!-- Header com Logo -->
+    <header class="p-4 bg-white shadow-sm">
+        <div class="flex justify-center">
+            <img src="https://upsites.digital/wp-content/uploads/2023/01/logo.png" alt="Logo UpSites"
+                class="w-32 h-auto">
+        </div>
+    </header>
+
+    <!-- Container Principal -->
+    <main class="p-8 flex justify-center items-center min-h-[calc(100vh-160px)]">
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden w-full max-w-7xl p-8 relative">
+            <!-- Container do Mermaid com borda suave e padding -->
+            <div id="mermaid-container" class="border border-gray-100 rounded-lg p-4">
+                <!-- Wrapper para o panzoom -->
+                <div id="panzoom-wrapper" style="transform-origin: 0 0;" class="cursor-grab active:cursor-grabbing">
+                    <div class="mermaid">
+                        flowchart TD
+                        %% Subgraph Principal (Diagrama do Sitemap)
+                        subgraph Diagrama_Principal[ ]
+                        Cliente(ISH Tecnologia)
+                        Cliente~~~m1[Home]:::pagInclusa
+                        Cliente~~~m2[Institucional]:::nep
+                        Cliente~~~m3[Soluções]:::nep
+                        Cliente~~~m4[Verticais]:::nep
+                        Cliente~~~m5[Conteúdos]:::nep
+                        Cliente~~~m6[Blog]:::blog
+                        Cliente~~~m7[Investidores]:::linkexterno
+                        Cliente~~~m8[Contato]:::pagInclusa
+                        m2-->m2_1[Sobre]:::pagInclusa
+                        m2_1--->m2_2[Trabalhe conosco]:::linkexterno
+                        m2_2-->m2_3[Sis. de Integridade]:::pagInclusa
+                        m2_1-.->m2_1_1[Clientes]:::pagextramd
+                        m2_1-.->m2_1_2[Alianças]:::pagextramd
+                        m2_3-->m2_3_1[Transp.]:::pagextrasp
+                        m2_3-->m2_3_2[Pol. ISH]:::pagextrasp
+                        m2_3-->m2_3_3[Pol. Priva]:::pagextrasp
+                        m2_3-->m2_3_4[Cód. Cond.]:::pagextrasp
+                        m2_3-->m2_3_5[Dir. do tit.]:::pagextrasp
+                        m3-->m3_1[ISH Vision]:::pagextracp
+                        m3_1-->m3_2[GRC/IRM]:::pagextracp
+                        m3_2-->m3_3[Infraestrtura]:::pagextramd
+                        m3_3-->m3_4[Nuvem]:::pagextramd
+                        m3_4-->m3_5[Riscos Digi]:::pagextramd
+                        m4-->m4_1[Educação]:::pagextracp
+                        m4_1-->m4_2[Financeiro]:::pagextrafl
+                        m4_2-->m4_3[Setor Público]:::pagextrafl
+                        m4_3-->m4_4[Indústria]:::pagextrafl
+                        m4_4-->m4_5[Saúde]:::pagextrafl
+                        m4_5-->m4_6[Varejo]:::pagextrafl
+                        m5-->m5_1[Mat. p. download]:::cpt
+                        m5_1-->m5_2[Cases de sucesso]:::cpt
+                        m5_2-->m5_3[Podcast]:::cpt
+                        m5_3-->m5_4[Boletins de seg.]:::cpt
+                        end
+
+                        %% Subgraph Legenda
+                        subgraph Legenda["Legenda"]
+                        direction LR
+                        legPagInclusa[Pagina Inclusa]:::pagInclusa
+                        legLinkExterno[Link Externo]:::linkexterno
+                        legNep[Apenas item de menu]:::nep
+                        legCpt[Captura de Lead]:::cpt
+                        legBlog[Notícias ou Blog]:::blog
+                        legPagExtraCp[Página extra complexa]:::pagextracp
+                        legPagExtraMd[Página extra média]:::pagextramd
+                        legPagExtraSp[Página extra simples]:::pagextrasp
+                        legPagExtrafl[Página extra Filho]:::pagextrafl
+                        end
+
+                        %% Inserção de classes
+                        class Legenda legenda
+                        class Diagrama_Principal fullchart
+                        class Legenda leg
+
+                        %% Definição de Classes
+                        classDef titulo font-size:30px, font-weight:bold;
+                        classDef default fill:#d2d2d2,stroke-width:0px;
+                        classDef pagInclusa fill:#ffe800,stroke-width:0px,color:#000;
+                        classDef nep fill:#f2f2f2, stroke:#000, color:#000, stroke-width:1px;
+                        classDef linkexterno fill:#ffffff, stroke:#d2d2d2, stroke-width:1px,color:#000;
+                        classDef cpt fill:#c903c9, color:#fff;
+                        classDef blog fill:#ff9900, color:#fff;
+                        classDef pagextracp fill:#cc0000, color:#fff;
+                        classDef pagextramd fill:#4a86e8, color:#fff;
+                        classDef pagextrasp fill:#45818e, color:#fff;
+                        classDef pagextrafl fill:#93c47d, color:#fff;
+                        classDef fullchart stroke:#fff, fill:transparent;
+                        classDef legenda stroke:#000000, fill:transparent;
+                        classDef leg font-weight:bold, font-size:20px
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instruções de uso -->
+            <div class="mt-6 text-sm text-gray-600 text-center">
+                <p class="mb-2">🖱️ Arraste para mover o diagrama</p>
+                <p>Ctrl + Scroll do mouse para zoom</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-4 bg-white shadow-sm mt-8">
+        <p class="text-center text-gray-600 text-sm">
+            © 2024 UpSites - Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <script>
+        // Inicializa o Mermaid
+        mermaid.initialize({ startOnLoad: true });
+
+        // Função para inicializar o panzoom após o Mermaid renderizar
+        window.addEventListener('load', function () {
+            setTimeout(() => {
+                const element = document.getElementById('panzoom-wrapper');
+
+                // Inicializa o panzoom
+                const pz = panzoom(element, {
+                    maxZoom: 5,
+                    minZoom: 0.1,
+                    bounds: true,
+                    boundsPadding: 0.1,
+                    smoothScroll: true
+                });
+
+                // Adiciona suporte ao scroll do mouse para zoom
+                element.addEventListener('wheel', function (e) {
+                    if (e.ctrlKey) {
+                        e.preventDefault();
+                        const delta = e.deltaY;
+                        const scale = pz.getScale();
+                        const newScale = scale * (1 - delta / 500);
+                        pz.smoothZoom(e.clientX, e.clientY, newScale);
+                    }
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
